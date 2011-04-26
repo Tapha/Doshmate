@@ -47,7 +47,7 @@
 	<div id='side_box'>
 	
 		<div id='login_box_half'>
-		<p><a id='r_to_bid' href='<?php echo $base_url.'register'; ?>'>Get Started Bidding!</a></p>
+		<a id='r_to_bid' href='<?php echo $base_url.'register'; ?>'>Get Started Bidding!</a>
 		<p><?php 
 			
 			  $this->load->helper('form'); 
@@ -65,7 +65,9 @@
               'style'       => 'width:50%',
 			  );
 			  
-			  echo '<b>Username:</b>'.form_input($data);
+			  echo 'Username: <br>'.form_input($data);
+			  
+			  echo "</br>";
 			  
 			  $data = array(
               'name'        => 'password',
@@ -77,9 +79,12 @@
               'style'       => 'width:50%',
 			  );
 			  
-			  echo '<b>Password: </b>'.form_input($data);
 			  
-			  echo form_submit('login', 'Login')." <a id='forgot' href='".$base_url.'forgot'."'>Forgot Password</a>";
+			  echo '<p>Password: <br>'.form_input($data);
+			  
+			  echo "</br>";
+			  
+			  echo form_submit('login', 'Login')." <a id='forgot' href='".$base_url.'forgot'."'><br>Forgot Password</a>";
 		
 		?></p>
 		</div>
