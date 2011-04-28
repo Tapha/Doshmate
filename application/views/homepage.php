@@ -5,6 +5,8 @@
 	<title>Doshmate</title>
 	<link rel="icon" type="image/png" href="<?php echo $base_url."images/favicon.ico";?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo $base_url.'css/style.css';?>" />
+	<script type="text/javascript" src='<?php echo $base_url.'js/prototype.js';?>'>
+	</script>
 </head>
 <body>
 <div id='icon_iphone'>
