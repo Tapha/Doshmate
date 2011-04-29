@@ -154,11 +154,37 @@ class Register extends CI_Controller {
 		'users_id' => $users_id,
 		'loggedin' => TRUE
 		);	
-
+		
 		$this->session->set_userdata($data_user);
+		/*Add this all later.
+		//Email the user with a confirmation link
+		//set email library configuration
+		 $config = Array(
+		 'protocol' => 'smtps',
+		 'smtp_host' => 'server22.namecheaphosting.com',
+		 'smtp_port' => 465,
+		 'smtp_user' => 'no_reply@doshmate.com',
+		 'smtp_pass' => 'xxx',
+		 'mailtype' => 'html'
+		 );
 
+		$this->load->library('email', $config);
+		$this->email->set_newline("\r\n");	
+
+		$conf_url = "<a href='".base_url()."main/confirm/".$first_name.$appkey.$last_name."'>".base_url()."main/confirm/".$first_name.$appkey.$last_name."</a>";
+
+		$message = "<html>Hi $first_name, <p><br>Click on this confirmation link to get started and confirm your account with us: $conf_url <br><br> Thanks for using us! <b><br><br> Tapha Ngum, <br> Founder, foggypencil</b></html>";
+
+		$this->email->from('no_reply@foggypencil.com', 'FoggyPencil');
+        $this->email->to($email); 
+		$this->email->subject('Confirmation Link');
+		$this->email->message($message);	
+
+		$this->email->send();
+		
 		$data['email'] = $this->session->userdata('email');
 
+		*/
 		$data['base_url'] = base_url();
 
 		$this->load->view('space', $data);

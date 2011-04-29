@@ -61,13 +61,13 @@
 			  $data = array(
               'name'        => 'username',
               'id'          => 'username',
-			  //'placeholder' => 'Enter Your Username',
+			  'placeholder' => 'Username',
               'maxlength'   => '100',
               'size'        => '50',
               'style'       => 'width:50%',
 			  );
 			  
-			  echo 'Username: <br>'.form_input($data);
+			  echo form_input($data);
 			  
 			  echo "</br>";
 			  
@@ -75,18 +75,17 @@
               'name'        => 'password',
 			  'type'        => 'password',
               'id'          => 'password',
-			  //'placeholder' => 'Enter Your Password',
+			  'placeholder' => 'Password',
               'maxlength'   => '100',
               'size'        => '50',
               'style'       => 'width:50%',
 			  );
 			  
-			  
-			  echo '<p>Password: <br>'.form_input($data);
+			  echo form_input($data);
 			  
 			  echo "</br>";
 			  
-			  echo form_submit('login', 'Login')." <a id='forgot' href='".$base_url.'forgot'."'><br>Forgot Password</a>";
+			  echo "<input class = 'submit' type = 'submit' value = 'login'>"." <br><a id='forgot' href='".$base_url.'forgot'."'>Forgot?</a>";
 		
 		?></p>
 		</div>
@@ -105,7 +104,6 @@
 			<div='win_stuff'>
 				<img id='ipad-128' src="<?php echo $base_url.'images/ipad-128.png'; ?>">
 				<img id='win_img' src="<?php echo $base_url.'images/win_img.png'; ?>">
-			</div>
 			</div>
 	</div>
 <div id='product_description'>
