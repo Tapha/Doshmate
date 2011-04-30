@@ -1,4 +1,4 @@
-@charset utf-8;
+@charset "utf8";
 /**
  * SenCSS - Sensible Standards CSS framework
  *
@@ -356,19 +356,19 @@ top: 25px;
 
 /*Main*/
 
-#product {
+.product {
 position: absolute;
 top: 220px;
 left: 30px;
 }
 
-#selling_for 
+.selling_for 
 
 {
 font-size: 19px;
 }
 
-#winning_user 
+.winning_user 
 
 {
 font-size: 8px;
@@ -394,7 +394,7 @@ top: 100px;
 font-family: 'Helvetica Neue', Helvetica, sans-serif;
 }
 
-#info_product 
+.info_product 
 
 {
 position: absolute;
@@ -403,13 +403,13 @@ left: 350px;
 width: 290px;
 }
 
-#title_product 
+.title_product 
 
 {
 font-size: 10px;
 }
 
-#price 
+.price 
 
 {
 font-size: 7px;

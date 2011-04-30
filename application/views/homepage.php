@@ -5,8 +5,13 @@
 	<title>Doshmate</title>
 	<link rel="icon" type="image/png" href="<?php echo $base_url."images/favicon.ico";?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo $base_url.'css/style.css';?>" />
-	<script type="text/javascript" src='<?php echo $base_url.'js/prototype.js';?>'>
-	</script>
+	<script type="text/javascript" src='<?php echo $base_url.'js/prototype.js';?>'></script>
+	<script type="text/javascript" src='<?php echo $base_url.'js/countdown.js';?>'></script>
+	<script type="text/javascript" >
+        document.observe("dom:loaded", function(){
+           new countDown("<?php echo time(); ?>"); 
+        });
+        </script>
 </head>
 <body>
 <div id='icon_iphone'>
@@ -27,22 +32,22 @@
 		<div id='text'><p>Register now and invite a friend to get a chance to win a brand new iPad 2! You can Register <a id='r_to_2_b_2' href='<?php echo $base_url.'register'; ?>'>here</a>, It's FREE!</p></div>
 		* Terms and conditions apply.
 		</div>
-		<img id='product' src='<?php echo $base_url.'images/apple-ipod-touch.jpg'; ?>'>
-		<div id='info_product'>
-			<div id='title_product'>	
+		<img class='product' src='<?php echo $base_url.'images/apple-ipod-touch.jpg'; ?>'>
+		<div class='info_product' id="product_1">
+			<div class='title_product'>	
 				<h1><?php echo $product_name; ?></h1>
 			</div>
-			<div id='price'>	
+			<div class='price'>	
 				<h1>RRP: <?php echo $rrp; ?></h1>
 			</div>
-			<div id='selling_for'>	
+			<div class='selling_for'>	
 				<h1><?php echo $selling_price; ?></h1>
 			</div>
-			<div id='winning_user'>	
+			<div class='winning_user'>	
 				<h1><?php echo $winning_user; ?></h1>
 			</div>
-			<div ='timer'>
-				<h2>00:00:00</h2>
+			<div class='timer'>
+				<h2>00:10:00</h2>
 			</div>
 			  <button class="cupid-green">Place A Bid</button>
 	</div>
