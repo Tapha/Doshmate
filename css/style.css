@@ -257,22 +257,19 @@ right: 7px;
 
 {
 position: relative;
-top: 307px;
-right: -31px;
+top: 207px;
+right: 0px;
 }
 
 a:hover { color: #555;}
 a:link {text-decoration: none;}
 
-#product_description
-
-{
-position: absolute;
-top: 610px;
-left: 200px;
-border-top: 1px solid #666;
-width: 599px;
-
+#product_description{
+    position: absolute;
+    top: 610px;
+    left: 20px;
+    border-top: 1px solid #666;
+    width: 599px;
 }
 
 #Money
@@ -287,24 +284,24 @@ top: 25px;
 
 {
 position: relative;
-left: 64px;
-top: 251px;
+left: 33px;
+top: 151px;
 }
 
 #ipad-128
 
 {
 position: relative;
-left: 64px;
-top: 347px;
+left: 33px;
+top: 247px;
 }
 
 #win_img
 
 {
 position: relative;
-left: 33px;
-top: 378px;
+left: 0px;
+top: 278px;
 }
 
 #username 
@@ -1218,4 +1215,9 @@ button[disabled]:active {
   color: #aaa;
   cursor: not-allowed;
   text-shadow: none;
+}
+
+.highlight {
+    background:#FF4D00!IMPORTANT;
+    color:white!IMPORTANT;
 }

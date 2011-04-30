@@ -24,29 +24,38 @@ class Login extends CI_Controller {
 
 		if ((isset($false)) && ($false == TRUE))
 		{
+    
 			$this->load->helper('url');
 	
 			$data['base_url'] = base_url();
 			
 			//Grab Product Data
 		
-			$product_name = 'Apple iPod Touch 8 GB ';
 			//Put word count limit on admin section.
-			$data['product_name'] = $product_name;
 				
 			//Product Image.-> Put it here.
-				
-			$rrp = '$189.99';
-				
-			$data['rrp'] = $rrp;
-				
-			$selling_price = '$1.97'; //Find a way to convert database intergers to currency, like shown <- there. eg. make db integer 197 -> $1.97
-				
-			$data['selling_price'] = $selling_price;
-				
-			$winning_user = 'bobindo';
-				
-			$data['winning_user'] = $winning_user;
+                        $product_id =  1; // DEFAULT PRODUCT ID
+                        
+                        $sql = "SELECT * FROM products   WHERE product_id = '$product_id' ";
+                        $result=$this->db->query($sql);
+                        $product =$result->row();
+                        
+                        $sql = "SELECT * FROM bids , users  WHERE bids.users_id = users.users_id AND  bids.product_id = '$product_id' ORDER BY bid_time DESC LIMIT 1";
+                        $result=$this->db->query($sql);
+                        $bid=$result->row();
+
+                        $price=format_price(isset($bid->current_bid)?$bid->current_bid:$product->selling_price);
+
+                        $current_time = date("Y-m-d H:j:s");
+                        $end_time = $product->ends_at;
+
+			$data['product_image'] = $product->product_img;
+			$data['product_id'] = $product->product_id;
+			$data['product_name'] = $product->product_name;	
+			$data['rrp'] = format_price($product->rrp);
+			$data['selling_price'] = $price;
+			$data['winning_user'] = isset($bid->username)?$bid->username:"";
+			$data['difference'] = getCountdownDiff($current_time,$end_time);
 			
 			$this->load->view('space', $data);
 		}	
@@ -111,32 +120,40 @@ class Login extends CI_Controller {
 				$this->session->set_userdata($data_user);
 
 				$data['username'] = $this->session->userdata('username');
-
+                                $data['user_id']= $this->session->userdata('users_id');
 				//log the user in
 				
 				$this->load->helper('url');
 	
 				$data['base_url'] = base_url();
 				
-				//Grab Product Data
-		
-				$product_name = 'Apple iPod Touch 8 GB ';
-				//Put word count limit on admin section.
-				$data['product_name'] = $product_name;
-					
-				//Product Image.-> Put it here.
-					
-				$rrp = '$189.99';
-					
-				$data['rrp'] = $rrp;
-					
-				$selling_price = '$1.97'; //Find a way to convert database intergers to currency, like shown <- there. eg. make db integer 197 -> $1.97
-					
-				$data['selling_price'] = $selling_price;
-					
-				$winning_user = 'bobindo';
-					
-				$data['winning_user'] = $winning_user;
+                                //Grab Product Data
+
+                                //Put word count limit on admin section.
+
+                                //Product Image.-> Put it here.
+                                $product_id =  1; // DEFAULT PRODUCT ID
+
+                                $sql = "SELECT * FROM products   WHERE product_id = '$product_id' ";
+                                $result=$this->db->query($sql);
+                                $product =$result->row();
+
+                                $sql = "SELECT * FROM bids , users  WHERE bids.users_id = users.users_id AND  bids.product_id = '$product_id' ORDER BY bid_time DESC LIMIT 1";
+                                $result=$this->db->query($sql);
+                                $bid=$result->row();
+
+                                $price=format_price(isset($bid->current_bid)?$bid->current_bid:$product->selling_price);
+
+                                $current_time = date("Y-m-d H:j:s");
+                                $end_time = $product->ends_at;
+
+                                $data['product_image'] = $product->product_img;
+                                $data['product_id'] = $product->product_id;
+                                $data['product_name'] = $product->product_name;	
+                                $data['rrp'] = format_price($product->rrp);
+                                $data['selling_price'] = $price;
+                                $data['winning_user'] = isset($bid->username)?$bid->username:"";
+                                $data['difference'] = getCountdownDiff($current_time,$end_time);
 
 				$this->load->view('space', $data);
 			}
