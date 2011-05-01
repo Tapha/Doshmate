@@ -66,7 +66,7 @@ class Home extends CI_Controller {
 		
                 $product_id =  1; // DEFAULT PRODUCT ID
 
-                $sql = "SELECT * FROM products   WHERE product_id = '$product_id' ";
+                $sql = "SELECT * FROM products WHERE product_id = '$product_id' ";
                 $result=$this->db->query($sql);
                 $product =$result->row();
 
