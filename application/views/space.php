@@ -9,7 +9,7 @@
 	<script type="text/javascript" src='<?php echo $base_url.'js/countdown.js';?>'></script>
 	<script type="text/javascript" >
         document.observe("dom:loaded", function(){
-           new countDown("<?php echo time(); ?>"); 
+           new countDown("<?php echo $base_url; ?>","<?php echo time(); ?>"); 
         });
         
         function bid(prodId){
@@ -28,8 +28,8 @@
     <a href='<?php echo $base_url ?>'><img id='big_logo2' src='<?php echo $base_url.'images/big-logo2.png'; ?>'></a>
 </div>
 <ul class="links">
-    <li><a href="<?php echo $base_url."account"; ?>">My Account</a></li>
-    <li><a href="<?php echo $base_url."buy_bid"; ?>">Buy Bids</a></li>
+    <li><a href="<?php echo $base_url."winners"; ?>">Winners</a></li>
+    <li><a href="<?php echo $base_url."earn"; ?>">Affiliates</a></li>
     <li><a href="<?php echo $base_url."works" ?>">How It Works</a></li>
     <li><a href="<?php echo $base_url."faq"; ?>">FAQ</a></li>
     <li class="last"><a href="<?php echo $base_url."logout"; ?>">Logout</a></li>

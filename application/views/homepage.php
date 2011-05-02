@@ -9,7 +9,7 @@
 	<script type="text/javascript" src='<?php echo $base_url.'js/countdown.js';?>'></script>
 	<script type="text/javascript" >
         document.observe("dom:loaded", function(){
-           new countDown("<?php echo time(); ?>"); 
+           new countDown("<?php echo $base_url; ?>","<?php echo time(); ?>"); 
         });
         </script>
 </head>

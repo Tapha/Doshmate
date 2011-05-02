@@ -1,4 +1,4 @@
-function countDown(timestamp){
+function countDown(base_url,timestamp){
 
     var _parent = this;
     
@@ -21,7 +21,7 @@ function countDown(timestamp){
     _parent.ajax = function(){
         
         setTimeout(function(){
-            new Ajax.Request('bid/refresh', {
+            new Ajax.Request(base_url+'bid/refresh', {
                   method: 'get',
                   parameters : "products="+_parent.products.join(",")+"&timestamp="+_parent.timestamp+"&"+new Date().getTime(),
                   onSuccess: function(transport) {
